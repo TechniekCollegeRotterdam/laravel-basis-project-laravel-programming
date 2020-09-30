@@ -22,7 +22,9 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'created_at' => $this->faker->dateTimeThisDecade('now', 'Europe/Amsterdam'),
+            'updated_at' => $this->faker->dateTimeThisDecade('now', 'Europe/Amsterdam')
         ];
     }
 }
