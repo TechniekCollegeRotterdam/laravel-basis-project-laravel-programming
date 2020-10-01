@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/books', 'BookController');
-Route::resource('/categories', 'CategoryController');
+Route::resource('/categories', 'App\Http\Controllers\CategoryController');
 
 Auth::routes();
 
