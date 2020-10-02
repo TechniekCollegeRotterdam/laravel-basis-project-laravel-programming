@@ -6,6 +6,7 @@ use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Throwable;
 
 class CategoryController extends Controller
 {
@@ -98,10 +99,17 @@ class CategoryController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws Exception
      */
     public function destroy(Category $category)
     {
-        //
+        try {
+            $category->delete();
+        } catch (Throwable $e) {
+            report($e);
+            return redirect()->route('categories.index')->with('wrong', 'Category could not be deleted, because there are still books connected to it.');
+        }
+        return redirect()->route('categories.index')->with('message', 'Category deleted');
     }
 }

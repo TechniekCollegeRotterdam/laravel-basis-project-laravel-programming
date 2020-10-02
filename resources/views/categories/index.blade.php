@@ -8,6 +8,12 @@
         </div>
     @endif
 
+    @if(session('wrong'))
+        <div class="alert alert-danger">
+            {{ session('wrong') }}
+        </div>
+    @endif
+
     <h1 class="mt-5">Categories</h1>
 
     <nav class="nav">
