@@ -84,6 +84,17 @@ class CategoryController extends Controller
     }
 
     /**
+     * Show the form for deleting the specified resource.
+     *
+     * @param Category $category
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function delete(Category $category)
+    {
+        return view('categories.delete', compact('category'));
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Category  $category

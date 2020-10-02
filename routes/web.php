@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/books', 'BookController');
+Route::get('categories/{category}/delete', 'App\Http\Controllers\CategoryController@delete')->name('categories.delete');
 Route::resource('/categories', 'App\Http\Controllers\CategoryController');
 
 Auth::routes();
