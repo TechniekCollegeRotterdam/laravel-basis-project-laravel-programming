@@ -13,13 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('layouts.layout');
 });
 
-Route::resource('/books', 'BookController');
-Route::resource('/categories', 'CategoryController');
+Route::get('/books/{book}/delete', 'App\Http\Controllers\BookController@delete')->name('books.delete');
+Route::resource('/books', 'App\Http\Controllers\BookController');
 
-Auth::routes();
+Route::resource('/categories', 'CategoryController');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
