@@ -18,9 +18,30 @@
     </nav>
 
     <div class="card">
-        <div class="card-header">Category</div>
+        <div class="card-header">{{ $category->name }}</div>
         <div class="card-body">
-            <h2 class="card-title">{{ $category->name }}</h2>
+            <h2 class="card-title">Corresponding books to {{ $category->name }}</h2>
+
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Isbn</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($books as $book)
+                    <tr>
+                        <td>{{ $book->id }}</td>
+                        <td>{{ $book->title }}</td>
+                        <td>{{ $book->description }}</td>
+                        <td>{{ $book->isbn }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 @endsection
