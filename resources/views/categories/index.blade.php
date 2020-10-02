@@ -1,6 +1,13 @@
 @extends('layouts.layout')
 
 @section('content')
+
+    @if(session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+
     <h1 class="mt-5">Categories</h1>
 
     <nav class="nav">
