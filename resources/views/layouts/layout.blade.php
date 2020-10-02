@@ -24,7 +24,7 @@
         </a>
         <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Books</a>
-        <a class="py-2 d-none d-md-inline-block" href="#">Categories</a>
+        <a class="py-2 d-none d-md-inline-block" href="{{route('categories.index')}}">Categories</a>
         {{--<a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>--}}
     </div>

@@ -18,10 +18,11 @@ Auth::routes();
 Route::get('/', function () {
     return view('layouts.layout');
 });
-
+  
 Route::get('/books/{book}/delete', 'App\Http\Controllers\BookController@delete')->name('books.delete');
 Route::resource('/books', 'App\Http\Controllers\BookController');
 
+Route::get('categories/{category}/delete', 'App\Http\Controllers\CategoryController@delete')->name('categories.delete');
 Route::resource('/categories', 'CategoryController');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

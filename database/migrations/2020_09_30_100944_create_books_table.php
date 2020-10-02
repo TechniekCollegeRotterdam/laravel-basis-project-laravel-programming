@@ -22,8 +22,8 @@ class CreateBooksTable extends Migration
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
             $table->timestamps();
         });
     }
