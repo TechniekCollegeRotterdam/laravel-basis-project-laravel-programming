@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('permission:create book', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit book', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:create book', ['only' => ['delete', 'destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

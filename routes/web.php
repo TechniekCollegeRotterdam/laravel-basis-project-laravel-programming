@@ -19,10 +19,12 @@ Route::get('/', function () {
     return view('layouts.layout');
 });
 
-Route::get('/books/{book}/delete', 'App\Http\Controllers\BookController@delete')->name('books.delete');
-Route::resource('/books', 'App\Http\Controllers\BookController');
+Route::group(['middleware' => ['role:customer|sales|admin']], function() {
+    Route::get('/categories/{category}/delete', 'App\Http\Controllers\CategoryController@delete')->name('categories.delete');
+    Route::resource('/categories', 'App\Http\Controllers\CategoryController');
 
-Route::get('categories/{category}/delete', 'App\Http\Controllers\CategoryController@delete')->name('categories.delete');
-Route::resource('/categories', 'App\Http\Controllers\CategoryController');
+    Route::get('/books/{book}/delete', 'App\Http\Controllers\BookController@delete')->name('books.delete');
+    Route::resource('/books', 'App\Http\Controllers\BookController');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
